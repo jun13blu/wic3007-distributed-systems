@@ -85,14 +85,6 @@ Login to your newly created user.
 sudo su pegasus
 ```
 
-Initialize database for Pegasus. 
-
-> Note: You may need to change the path for the `workflow.db` according to your username.
-
-```bash
-pegasus-db-admin update sqlite:////home/pegasus/.pegasus/workflow.db
-```
-
 ## Step Six: Starting Up the Pegasus Dashboard Service
 
 By default, Pegasus listens only to your `localhost` address. Hence, when starting your dashboard, you will need to enable it to listen to all requests to the dashboard.
@@ -100,7 +92,15 @@ By default, Pegasus listens only to your `localhost` address. Hence, when starti
 > Note: The default port is 5000, you may change it using --port <PORT> based on your own preference.
 
 ```bash
-sudo pegasus-service --host 0.0.0.0
+pegasus-service --host 0.0.0.0
+```
+
+Initialize database for Pegasus. 
+
+> Note: You may need to change the path for the `workflow.db` according to your username.
+
+```bash
+pegasus-db-admin update sqlite:////home/pegasus/.pegasus/workflow.db
 ```
 
 Access the Pegasus Dashboard at `https://<IP>:5000` using your own internet browser and login with your newly created user credentials.
