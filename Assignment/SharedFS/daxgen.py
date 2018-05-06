@@ -46,8 +46,8 @@ mProjExec.addArguments("-p", mImgtbl_rawdir_input, mImgtbl_rawdir_output, header
 for f in onlyfiles:	mProjExec.uses(f, link=Link.INPUT, transfer=True, register=True)
 mProjExec.uses(mImgtbl_rawdir_output, link=Link.INPUT, transfer=True, register=True)
 mProjExec.uses(header_template, link=Link.INPUT, transfer=True, register=True)
-for f in new_file_names:	mProjExec.uses(f, link=Link.OUTPUT, transfer=False, register=True)
-for f in new_file_names_area: mProjExec.uses(f, link=Link.OUTPUT, transfer=False, register=True)
+for f in new_file_names:	mProjExec.uses(f, link=Link.OUTPUT, transfer=True, register=True)
+for f in new_file_names_area: mProjExec.uses(f, link=Link.OUTPUT, transfer=True, register=True)
 mProjExec.uses(stats_table, link=Link.OUTPUT, transfer=False, register=True)
 dax.addJob(mProjExec)
 
