@@ -25,7 +25,7 @@ tr {} {{
 		pfn "/usr/bin/{}"
 		arch "x86_64"
 		os "LINUX"
-		type "INSTALLED"
+		type "STAGEABLE"
 	}}
 }}	
 	'''.format(dp,dp)

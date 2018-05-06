@@ -30,7 +30,7 @@ mImgtbl_rawdir_output = "images-rawdir.tbl"
 mImgtbl = Job("mImgtbl")
 mImgtbl.addArguments(mImgtbl_rawdir_input, mImgtbl_rawdir_output)
 for f in onlyfiles:	mImgtbl.uses(f, link=Link.INPUT, transfer=True, register=True)
-mImgtbl.uses(mImgtbl_rawdir_output, link=Link.OUTPUT, transfer=False, register=True)
+mImgtbl.uses(mImgtbl_rawdir_output, link=Link.OUTPUT, transfer=True, register=True)
 dax.addJob(mImgtbl)
 
 new_file_names = [("hdu0_" + f) for f in onlyfiles]
@@ -63,7 +63,7 @@ diffs_tbl = "diffs.tbl"
 mOverlaps = Job("mOverlaps")
 mOverlaps.addArguments(mImgtbl_output, diffs_tbl)
 mOverlaps.uses(mImgtbl_output, link=Link.INPUT, transfer=True, register=True)
-mOverlaps.uses(diffs_tbl, link=Link.OUTPUT, transfer=False, register=True)
+mOverlaps.uses(diffs_tbl, link=Link.OUTPUT, transfer=True, register=True)
 dax.addJob(mOverlaps)
 
 dax.depends(parent=mImgtbl, child=mProjExec)

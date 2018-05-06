@@ -35,8 +35,8 @@ for f in new_file_names: mDiffExec.uses(f, link=Link.INPUT, register=True, trans
 for f in new_file_names_area: mDiffExec.uses(f, link=Link.INPUT, transfer=True, register=True)
 mDiffExec.uses("diffs.tbl", link=Link.INPUT, transfer=True, register=True)
 mDiffExec.uses("template.hdr", link=Link.INPUT, transfer=True, register=True)
-for f in diff_file_list: mDiffExec.uses(f, link=Link.OUTPUT, register=False, transfer=True)
-for f in new_diff_file_list: mDiffExec.uses(f, link=Link.OUTPUT, register=False, transfer=True)
+for f in diff_file_list: mDiffExec.uses(f, link=Link.OUTPUT, register=True, transfer=False)
+for f in new_diff_file_list: mDiffExec.uses(f, link=Link.OUTPUT, register=True, transfer=False)
 dax.addJob(mDiffExec)
 
 mFitExec = Job("mFitExec")
