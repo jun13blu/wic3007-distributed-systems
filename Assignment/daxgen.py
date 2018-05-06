@@ -11,7 +11,7 @@ USER = pwd.getpwuid(os.getuid())[0]
 # Register all the input files (INIT)
 onlyfiles = [f for f in listdir("input/rawdir") if isfile(join("input/rawdir", f))]
 fullpath = [os.path.join(os.getcwd(), "input/rawdir/" + f) for f in onlyfiles]
-with open('rc.txt', 'rw+') as f:
+with open('rc.txt', 'w+') as f:
 	for a,b in zip(onlyfiles, fullpath):
 		f.write(a + ' file://' + b + ' site="local"\n')
 	f.write("template.hdr file://"+os.path.join(os.getcwd(),"input/template.hdr")+ ' site="local"\n')

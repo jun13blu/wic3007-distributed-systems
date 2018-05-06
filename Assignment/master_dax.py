@@ -20,14 +20,14 @@ os.system("cp  m101/template.hdr input")
 # Write transformation catalogue
 def tc(dp):
 	tmp = '''
-	tr {} {{
-		site condorpool {{
-			pfn "/usr/bin/{}"
-			arch "x86_64"
-			os "LINUX"
-			type "INSTALLED"
-		}}
-	}}	
+tr {} {{
+	site condorpool {{
+		pfn "/usr/bin/{}"
+		arch "x86_64"
+		os "LINUX"
+		type "INSTALLED"
+	}}
+}}	
 	'''.format(dp,dp)
 	return tmp
 
@@ -40,22 +40,22 @@ with open('tc.txt', 'w+') as f:
 # Write Pegasus Properties 
 def properties():
 	tmp = '''
-	# This tells Pegasus where to find the Site Catalog
-	pegasus.catalog.site.file=sites.xml
+# This tells Pegasus where to find the Site Catalog
+pegasus.catalog.site.file=sites.xml
 
-	# This tells Pegasus where to find the Replica Catalog
-	pegasus.catalog.replica=File
-	pegasus.catalog.replica.file=rc.txt
+# This tells Pegasus where to find the Replica Catalog
+pegasus.catalog.replica=File
+pegasus.catalog.replica.file=rc.txt
 
-	# This tells Pegasus where to find the Transformation Catalog
-	pegasus.catalog.transformation=Text
-	pegasus.catalog.transformation.file=tc.txt
+# This tells Pegasus where to find the Transformation Catalog
+pegasus.catalog.transformation=Text
+pegasus.catalog.transformation.file=tc.txt
 
-	# Use condor to transfer workflow data
-	pegasus.data.configuration=condorio
+# Use condor to transfer workflow data
+pegasus.data.configuration=condorio
 
-	# This is the name of the application for analytics
-	pegasus.metrics.app=pegasus-tutorial
+# This is the name of the application for analytics
+pegasus.metrics.app=pegasus-tutorial
 	'''
 	return tmp
 
@@ -65,30 +65,30 @@ with open('pegasus.properties','w+') as f:
 # Write sites.xml
 def sites():
 	tmp = '''
-	<?xml version="1.0" encoding="UTF-8"?>
-	<sitecatalog xmlns="http://pegasus.isi.edu/schema/sitecatalog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	    xsi:schemaLocation="http://pegasus.isi.edu/schema/sitecatalog http://pegasus.isi.edu/schema/sc-4.1.xsd" version="4.1">
+<?xml version="1.0" encoding="UTF-8"?>
+<sitecatalog xmlns="http://pegasus.isi.edu/schema/sitecatalog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pegasus.isi.edu/schema/sitecatalog http://pegasus.isi.edu/schema/sc-4.1.xsd" version="4.1">
 
-	    <!-- The local site contains information about the submit host -->
-	    <site handle="local" arch="x86_64" os="LINUX">
-	        <!-- This is where intermediate data will be stored -->
-	        <directory type="shared-scratch" path="/tmp/wf/scratch">
-	            <file-server operation="all" url="file:///tmp/wf/scratch"/>
-	        </directory>
-	        <!-- This is where output data will be stored -->
-	        <directory type="shared-storage" path="/tmp/wf/output">
-	            <file-server operation="all" url="file:///tmp/wf/output"/>
-	        </directory>
-	    </site>
+    <!-- The local site contains information about the submit host -->
+    <site handle="local" arch="x86_64" os="LINUX">
+        <!-- This is where intermediate data will be stored -->
+        <directory type="shared-scratch" path="/tmp/wf/scratch">
+            <file-server operation="all" url="file:///tmp/wf/scratch"/>
+        </directory>
+        <!-- This is where output data will be stored -->
+        <directory type="shared-storage" path="/tmp/wf/output">
+            <file-server operation="all" url="file:///tmp/wf/output"/>
+        </directory>
+    </site>
 
-	    <site handle="condorpool" arch="x86_64" os="LINUX">
-	        <!-- These profiles tell Pegasus that the site is a plain Condor pool -->
-	        <profile namespace="pegasus" key="style">condor</profile>
-	        <profile namespace="condor" key="universe">vanilla</profile>
-	        <profile namespace="condor" key="should_transfer_files">True</profile>
-	        <profile namespace="condor" key="when_to_transfer_output">ON_EXIT</profile>
-	    </site>
-	</sitecatalog>
+    <site handle="condorpool" arch="x86_64" os="LINUX">
+        <!-- These profiles tell Pegasus that the site is a plain Condor pool -->
+        <profile namespace="pegasus" key="style">condor</profile>
+        <profile namespace="condor" key="universe">vanilla</profile>
+        <profile namespace="condor" key="should_transfer_files">True</profile>
+        <profile namespace="condor" key="when_to_transfer_output">ON_EXIT</profile>
+    </site>
+</sitecatalog>
 	'''
 	return tmp
 
