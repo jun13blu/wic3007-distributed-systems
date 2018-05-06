@@ -13,10 +13,9 @@ os.system("curl http://montage.ipac.caltech.edu/docs/m101Example/tutorial-initia
 os.system("tar -xvf gg.zip")
 
 # Create directories and file preparation
-os.system("mkdir m101pegasus")
-os.system("mkdir m101pegasus/input")
-os.system("cp -r m101/input/rawdir .")
-os.system("cp  m101/input/template.hdr .")
+os.system("mkdir input")
+os.system("cp -r m101/input/rawdir input")
+os.system("cp  m101/input/template.hdr input")
 
 # Write transformation catalogue
 def tc(dp):
@@ -102,7 +101,7 @@ os.system("./plan_dax.sh part1.dax")
 
 # Wait for trigger for part two execution
 while True:
-	f = open('rc.txt', 'r')
+	f = open('rc.txt', 'rw+')
 	if "diffs.tbl" in f.read():
 		break		
 	f.close()
