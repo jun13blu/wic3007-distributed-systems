@@ -1,0 +1,10 @@
+Universe = vanilla
+transfer_input_files =/home/ubuntu/Montage/bin/, images.tbl, corrdir, template.hdr,final
+Executable =/home/ubuntu/Montage/bin/mAdd
+Arguments = -p corrdir images.tbl template.hdr final/m101_mosaic.fits
+Log = i.log
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files = final
+Queue
+

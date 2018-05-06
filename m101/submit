@@ -1,0 +1,12 @@
+Universe = vanilla
+Executable = /home/ubuntu/Montage/bin/mImgtbl 
+Log = a.log
+Output = a.out
+Error = a.error
+should_transfer_files = YES
+transfer_input_files = rawdir
+Arguments = rawdir images-rawdir.tbl
+when_to_transfer_output = ON_EXIT
+
+Queue
+

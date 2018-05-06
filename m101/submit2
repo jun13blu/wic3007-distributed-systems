@@ -1,0 +1,9 @@
+Universe = vanilla
+transfer_input_files =projdir
+Executable =/home/ubuntu/Montage/bin/mImgtbl
+Arguments = projdir images.tbl
+Log = c.log
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+Queue
+

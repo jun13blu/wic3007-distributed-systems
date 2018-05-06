@@ -1,0 +1,8 @@
+Universe = vanilla
+transfer_input_files =/home/ubuntu/Montage/bin/, diffs.tbl,diffdir
+Executable =/home/ubuntu/Montage/bin/mFitExec
+Arguments = diffs.tbl fits.tbl diffdir
+Log = f.log
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+Queue

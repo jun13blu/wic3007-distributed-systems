@@ -1,0 +1,8 @@
+Universe = vanilla
+transfer_input_files =images.tbl
+Executable =/home/ubuntu/Montage/bin/mOverlaps
+Arguments = images.tbl diffs.tbl
+Log = d.log
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+Queue
