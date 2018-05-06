@@ -61,7 +61,7 @@ def properties():
 	return tmp
 
 with open('pegasus.properties','w+') as f:
-	f.write(properties)
+	f.write(properties())
 
 # Write sites.xml
 def sites():
@@ -94,7 +94,7 @@ def sites():
 	return tmp
 
 with open('sites.xml', 'w+') as f:
-	f.write(sites)
+	f.write(sites())
 
 # Part one
 os.system("python daxgen.py")
