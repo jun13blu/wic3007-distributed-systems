@@ -56,7 +56,7 @@ mImgtbl2 = Job("mImgtbl")
 mImgtbl2.addArguments(mProjExec_output, mImgtbl_output)
 for f in new_file_names:	mImgtbl2.uses(f, link=Link.INPUT, transfer=True, register=True)
 for f in new_file_names_area: mImgtbl2.uses(f, link=Link.INPUT, transfer=True, register=True)
-mImgtbl2.uses(mImgtbl_output, link=Link.OUTPUT, transfer=False, register=True)
+mImgtbl2.uses(mImgtbl_output, link=Link.OUTPUT, transfer=True, register=True)
 dax.addJob(mImgtbl2)
 
 diffs_tbl = "diffs.tbl"
