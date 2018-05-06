@@ -9,7 +9,8 @@ import re
 from Pegasus.DAX3 import *
 
 # Download and extract file
-os.system("curl http://montage.ipac.caltech.edu/docs/m101Example/tutorial-initial.tar.gz -o gg.zip | tar -xvf gg.zip")
+os.system("curl http://montage.ipac.caltech.edu/docs/m101Example/tutorial-initial.tar.gz -o gg.zip")
+os.system("tar -xvf gg.zip")
 
 # Create directories and file preparation
 os.system("mkdir m101pegasus")
