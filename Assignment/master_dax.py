@@ -14,8 +14,8 @@ os.system("tar -xvf gg.zip")
 
 # Create directories and file preparation
 os.system("mkdir input")
-os.system("cp -r m101/input/rawdir input")
-os.system("cp  m101/input/template.hdr input")
+os.system("cp -r m101/rawdir input")
+os.system("cp  m101/template.hdr input")
 
 # Write transformation catalogue
 def tc(dp):
