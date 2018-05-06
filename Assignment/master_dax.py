@@ -130,7 +130,7 @@ with open('plan_dax.sh', 'w+') as f:
 
 # Part one
 os.system("python daxgen.py")
-os.system("./plan_dax.sh part1.dax")
+os.system("sh plan_dax.sh part1.dax")
 
 # Wait for trigger for part two execution
 while True:
@@ -142,6 +142,6 @@ while True:
 
 # Part two
 os.system("python daxgen2.py")
-os.system("./plan_dax.sh part2.dax")
+os.system("sh plan_dax.sh part2.dax")
 	
 	
