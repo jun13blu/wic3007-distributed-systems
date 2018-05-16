@@ -113,7 +113,7 @@ dax.depends(parent=mFitExec, child=mBgModel)
 # for j in jobs:
 # 	dax.depends(parent=mBgModel, child=j)
 # 	dax.depends(parent=j, child=mImgtbl)
-dax.depends(parent=mBgExec, child=mImgTbl)
+dax.depends(parent=mBgExec, child=mImgtbl)
 dax.depends(parent=mImgtbl, child=mAdd)
 dax.depends(parent=mAdd, child=mJPEG)
 
