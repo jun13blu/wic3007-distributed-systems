@@ -91,12 +91,12 @@ def sites():
     <!-- The local site contains information about the submit host -->
     <site handle="local" arch="x86_64" os="LINUX">
         <!-- This is where intermediate data will be stored -->
-        <directory type="shared-scratch" path="/tmp/wf/scratch">
-            <file-server operation="all" url="file:///tmp/wf/scratch"/>
+        <directory type="shared-scratch" path="/mnt/ceph/wf/scratch">
+            <file-server operation="all" url="file:///mnt/ceph/wf/scratch"/>
         </directory>
         <!-- This is where output data will be stored -->
-        <directory type="shared-storage" path="/tmp/wf/output">
-            <file-server operation="all" url="file:///tmp/wf/output"/>
+        <directory type="shared-storage" path="/mnt/ceph/wf/output">
+            <file-server operation="all" url="file:///mnt/ceph/wf/output"/>
         </directory>
     </site>
 
