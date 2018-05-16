@@ -169,7 +169,7 @@ mAddIR.uses("DSS2IR.fits", link=Link.OUTPUT, transfer=True, register=True)
 dax.addJob(mAddIR)
 
 mJPEG = Job("mJPEG")
-mJPEG.addArguments("-blue", "DSS2B.fits", "-ls", "99.999%", "gaussian-log", "-green", "DSS2R.fits", "-ls", "99.999%", "gaussian-log", "-red", "DSS2IR.fits", "-ls", "99.999%", "gaussian-log", "-out", "DSS2_BRIR.jpg")
+mJPEG.addArguments("-blue", "DSS2B.fits", "-1s", "99.999%", "gaussian-log", "-green", "DSS2R.fits", "-1s", "99.999%", "gaussian-log", "-red", "DSS2IR.fits", "-1s", "99.999%", "gaussian-log", "-out", "DSS2_BRIR.jpg")
 mJPEG.uses("DSS2B.fits", link=Link.INPUT, transfer=True, register=True)
 mJPEG.uses("DSS2R.fits", link=Link.INPUT, transfer=True, register=True)
 mJPEG.uses("DSS2IR.fits", link=Link.INPUT, transfer=True, register=True)
