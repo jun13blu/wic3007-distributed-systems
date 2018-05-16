@@ -14,10 +14,10 @@ remotetblB = os.path.join(os.getcwd(), "output/remoteB.tbl")
 remotetblR = os.path.join(os.getcwd(), "output/remoteR.tbl")
 remotetblIR = os.path.join(os.getcwd(), "output/remoteIR.tbl")
 f = open(remotetblB, 'r')
-f = open(remotetblR, 'r')
-f = open(remotetblIR, 'r')
 archive_file_listB = re.findall(r'(poss2ukstu_blue_.*\.fits\.gz)', f.read())
+f = open(remotetblR, 'r')
 archive_file_listR = re.findall(r'(poss2ukstu_red_.*\.fits\.gz)', f.read())
+f = open(remotetblIR, 'r')
 archive_file_listIR = re.findall(r'(poss2ukstu_ir_.*\.fits\.gz)', f.read())
 
 # Create an abstract dag
