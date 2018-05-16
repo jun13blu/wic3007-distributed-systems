@@ -146,7 +146,7 @@ mAddB.addArguments("-p", ".", mImgtbl_outputB, header_template, "DSS2B.fits")
 mAddB.uses(mImgtbl_outputB, link=Link.INPUT, transfer=True, register=True)
 mAddB.uses(header_template, link=Link.INPUT, transfer=True, register=True)
 for f in new_file_namesB: mAddB.uses(f, link=Link.INPUT, register=True, transfer=True)
-for f in new_file_names_areaB: mAddB.uses(f, link=Link.INPUT, transfer=True, register=True)
+# for f in new_file_names_areaB: mAddB.uses(f, link=Link.INPUT, transfer=True, register=True)
 mAddB.uses("DSS2B.fits", link=Link.OUTPUT, transfer=True, register=True)
 dax.addJob(mAddB)
 
