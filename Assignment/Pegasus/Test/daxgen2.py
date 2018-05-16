@@ -15,10 +15,13 @@ remotetblR = os.path.join(os.getcwd(), "output/remoteR.tbl")
 remotetblIR = os.path.join(os.getcwd(), "output/remoteIR.tbl")
 f = open(remotetblB, 'r')
 archive_file_listB = re.findall(r'(poss2ukstu_blue_.*\.fits\.gz)', f.read())
+f.close()
 f = open(remotetblR, 'r')
 archive_file_listR = re.findall(r'(poss2ukstu_red_.*\.fits\.gz)', f.read())
+f.close()
 f = open(remotetblIR, 'r')
 archive_file_listIR = re.findall(r'(poss2ukstu_ir_.*\.fits\.gz)', f.read())
+f.close()
 
 # Create an abstract dag
 dax = ADAG("pleiades")

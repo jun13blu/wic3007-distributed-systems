@@ -155,9 +155,9 @@ os.system("sh plan_dax.sh pleiades.dax")
 while True:
     f = open('rc.txt', 'rw+')
     temp = f.read()
-	if ("remoteB.tbl" in temp) and ("remoteR.tbl" in temp) and ("remoteIR.tbl" in temp):
+    if ("remoteB.tbl" in temp) and ("remoteR.tbl" in temp) and ("remoteIR.tbl" in temp):
 		break		
-	f.close()
+    f.close()
 	time.sleep(1)
 
 # Part two
