@@ -59,32 +59,29 @@ mBgModel.uses("fits.tbl", link=Link.INPUT, transfer=True, register=True)
 mBgModel.uses("corrections.tbl", link=Link.OUTPUT, transfer=True, register=True)
 dax.addJob(mBgModel)
 
-output_file_names = [("out_" + f) for f in new_file_names]
-output_file_names_area = [("out_" + f) for f in new_file_names_area]
-
 # Replaces mBgExec
-#jobs = []
-#for a,b in zip(new_file_names, new_file_names_area):
-#    mBackground = Job("mBackground")
-#    mBackground.uses(a, link=Link.INPUT, transfer=True, register=True)
-#    mBackground.uses(b, link=Link.INPUT, transfer=True, register=True)
-#    mBackground.uses("out_" + a, link=Link.OUTPUT, transfer=True, register=True)
-#    mBackground.uses("out_" + b, link=Link.OUTPUT, transfer=True, register=True)
-#    mBackground.uses("corrections.tbl", link=Link.INPUT, transfer=True, register=True)
-#    mBackground.uses("images.tbl", link=Link.INPUT, transfer=True, register=True)
-#    mBackground.addArguments("-t", a, "out_" + a, "images.tbl", "corrections.tbl")
-#    jobs.append(mBackground)
-#    dax.addJob(mBackground)
+jobs = []
+for a,b in zip(new_file_names, new_file_names_area):
+   mBackground = Job("mBackground")
+   mBackground.uses(a, link=Link.INPUT, transfer=True, register=True)
+   mBackground.uses(b, link=Link.INPUT, transfer=True, register=True)
+   mBackground.uses("out_" + a, link=Link.OUTPUT, transfer=True, register=True)
+   mBackground.uses("out_" + b, link=Link.OUTPUT, transfer=True, register=True)
+   mBackground.uses("corrections.tbl", link=Link.INPUT, transfer=True, register=True)
+   mBackground.uses("images.tbl", link=Link.INPUT, transfer=True, register=True)
+   mBackground.addArguments("-t", a, "out_" + a, "images.tbl", "corrections.tbl")
+   jobs.append(mBackground)
+   dax.addJob(mBackground)
 
-mBgExec = Job("mBgExec")
-mBgExec.addArguments("-p",".","images.tbl","corrections.tbl",".")
-for f in new_file_names: mBgExec.uses(f, link=Link.INPUT, transfer=True, register=True)
-for f in new_file_names_area: mBgExec.uses(f, link=Link.INPUT, transfer=True, register=True)
-mBgExec.uses("images.tbl", link=Link.INPUT, transfer=True, register=True)
-mBgExec.uses("corrections.tbl", link=Link.INPUT, transfer=True, register=True)
-for f in output_file_names: mBgExec.uses(f, link=Link.OUTPUT, transfer=True, register=False)
-for f in output_file_names_area: mBgExec.uses(f, link=Link.OUTPUT, transfer=True, register=False)
-dax.addJob(mBgExec)
+# mBgExec = Job("mBgExec")
+# mBgExec.addArguments("-p",".","images.tbl","corrections.tbl",".")
+# for f in new_file_names: mBgExec.uses(f, link=Link.INPUT, transfer=True, register=True)
+# for f in new_file_names_area: mBgExec.uses(f, link=Link.INPUT, transfer=True, register=True)
+# mBgExec.uses("images.tbl", link=Link.INPUT, transfer=True, register=True)
+# mBgExec.uses("corrections.tbl", link=Link.INPUT, transfer=True, register=True)
+# for f in new_file_names: mBgExec.uses(f, link=Link.OUTPUT, transfer=True, register=False)
+# for f in new_file_names_area: mBgExec.uses(f, link=Link.OUTPUT, transfer=True, register=False)
+# dax.addJob(mBgExec)
 
 mImgtbl = Job("mImgtbl")
 mImgtbl.addArguments(".", "updated_images.tbl")
@@ -110,10 +107,10 @@ dax.addJob(mJPEG)
 
 dax.depends(parent=mDiffExec, child=mFitExec)
 dax.depends(parent=mFitExec, child=mBgModel)
-# for j in jobs:
-# 	dax.depends(parent=mBgModel, child=j)
-# 	dax.depends(parent=j, child=mImgtbl)
-dax.depends(parent=mBgExec, child=mImgtbl)
+for j in jobs:
+	dax.depends(parent=mBgModel, child=j)
+	dax.depends(parent=j, child=mImgtbl)
+# dax.depends(parent=mBgExec, child=mImgtbl)
 dax.depends(parent=mImgtbl, child=mAdd)
 dax.depends(parent=mAdd, child=mJPEG)
 
