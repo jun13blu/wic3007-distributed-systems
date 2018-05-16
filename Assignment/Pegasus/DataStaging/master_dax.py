@@ -31,7 +31,7 @@ tr {} {{
 	'''.format(dp,dp)
 	return tmp
 
-dependency = ["mImgtbl","mProjExec","mAdd","mBgModel","mFitExec","mJPEG","mBackground","mDiffExec","mOverlaps"]
+dependency = ["mImgtbl","mProjExec","mAdd","mBgModel","mFitExec","mJPEG","mBackground","mDiffExec","mOverlaps","mBgExec"]
 
 with open('tc.txt', 'w+') as f:
 	for d in dependency:
